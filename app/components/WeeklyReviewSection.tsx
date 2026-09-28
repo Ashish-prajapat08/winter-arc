@@ -27,8 +27,9 @@ export default function WeeklyReviewSection() {
           <div className="fade-up">
             <div style={{ background: "#0f0f0f", border: "1px solid #1e1e1e" }}>
               {/* Header */}
-              <div style={{ padding: "1rem 1.25rem", borderBottom: "1px solid #1e1e1e", display: "flex", justifyContent: "space-between" }}>
+              <div style={{ padding: "1rem 1.25rem", borderBottom: "1px solid #1e1e1e", display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
                 <div>
+                  <div style={{ fontSize: "0.45rem", color: "#3b82f6", letterSpacing: "0.14em", fontWeight: 700, marginBottom: "0.15rem" }}>PRODUCT PREVIEW — EXAMPLE REVIEW</div>
                   <div style={{ fontSize: "0.5rem", color: "#e8a830", letterSpacing: "0.14em", fontWeight: 700, marginBottom: "0.2rem" }}>WEEK 04 REVIEW</div>
                   <div style={{ fontSize: "0.72rem", color: "#777" }}>Run a half marathon</div>
                 </div>
@@ -114,8 +115,8 @@ export default function WeeklyReviewSection() {
               Know what&apos;s actually working.
             </h2>
             <p className="body-large fade-up delay-2" style={{ marginBottom: "2rem" }}>
-              Every week you get a clear picture of how your Arc is going.
-              Not a motivational message. An actual summary of what worked, what didn&apos;t, and what to change.
+              Every week you get a structured review of how your Arc is going.
+              Not a motivational message. A clear summary of what worked, what did not, and one adjustment to make next week.
             </p>
 
             {/* Comparison */}
@@ -149,11 +150,11 @@ export default function WeeklyReviewSection() {
               background: "#0c0c0c",
             }}>
               <p style={{ fontSize: "0.82rem", color: "#e8a830", fontWeight: 600, lineHeight: 1.6 }}>
-                &ldquo;Your plan changes when your behavior changes.&rdquo;
+                &ldquo;AI-assisted coaching is planned for the first product version. The weekly review and plan adjustments shown here reflect how the system is designed to work.&rdquo;
               </p>
               <p style={{ fontSize: "0.75rem", color: "#555", marginTop: "0.5rem", lineHeight: 1.5 }}>
-                Motivation gets you started.<br />
-                Systems get you through Day 47.
+                Weekly intelligence and behavior-based plan adaptation are core to what Winter Arc will do.
+                The screens above are product previews of how this will look.
               </p>
             </div>
           </div>

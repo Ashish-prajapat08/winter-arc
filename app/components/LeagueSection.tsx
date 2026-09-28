@@ -90,16 +90,17 @@ export default function AccountabilitySection() {
                 <div>
                   <div
                     style={{
-                      fontSize: "0.5rem",
-                      color: "#444",
+                      fontSize: "0.48rem",
+                      color: "#3b82f6",
                       letterSpacing: "0.14em",
+                      fontWeight: 700,
                       marginBottom: "0.2rem",
                     }}
                   >
-                    YOUR COHORT
+                    EXAMPLE COHORT — PRODUCT PREVIEW
                   </div>
                   <div style={{ fontSize: "0.75rem", fontWeight: 800, color: "#e8a830" }}>
-                    WINTER ARC — SEPTEMBER
+                    WINTER ARC — SEPT 2026
                   </div>
                 </div>
                 <div style={{ textAlign: "right" }}>
@@ -119,8 +120,8 @@ export default function AccountabilitySection() {
                 }}
               >
                 {[
-                  { label: "YOUR CONSISTENCY", value: "87%", col: "#e8a830" },
-                  { label: "STILL ACTIVE", value: "82%", col: "#22c55e" },
+                  { label: "YOUR CONSISTENCY (EXAMPLE)", value: "87%", col: "#e8a830" },
+                  { label: "EXAMPLE DATA", value: "—", col: "#444" },
                 ].map((s, i) => (
                   <div
                     key={i}

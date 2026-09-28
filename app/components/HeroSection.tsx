@@ -142,8 +142,8 @@ export default function HeroSection({ onCTAClick }: { onCTAClick: () => void }) 
                 display: "flex", justifyContent: "space-between", alignItems: "center",
               }}>
                 <div>
-                  <div style={{ fontSize: "0.52rem", fontWeight: 700, letterSpacing: "0.18em", color: "#555", textTransform: "uppercase", marginBottom: "0.2rem" }}>
-                    YOUR WINTER ARC
+                  <div style={{ fontSize: "0.48rem", fontWeight: 700, letterSpacing: "0.16em", color: "#3b82f6", textTransform: "uppercase", marginBottom: "0.15rem" }}>
+                    EXAMPLE ARC — PRODUCT PREVIEW
                   </div>
                   <div style={{ fontSize: "0.72rem", fontWeight: 800, color: "#e8a830", letterSpacing: "0.06em" }}>
                     RUN A HALF MARATHON
@@ -155,6 +155,7 @@ export default function HeroSection({ onCTAClick }: { onCTAClick: () => void }) 
                   <div style={{ fontSize: "0.5rem", color: "#444", letterSpacing: "0.1em" }}>/ 90</div>
                 </div>
               </div>
+
 
               {/* Progress bar */}
               <div style={{ padding: "0.9rem 1.25rem", borderBottom: "1px solid #1e1e1e" }}>
@@ -172,7 +173,7 @@ export default function HeroSection({ onCTAClick }: { onCTAClick: () => void }) 
                 {[
                   { label: "CONSISTENCY", value: "87%", accent: true },
                   { label: "STREAK", value: "6 DAYS", accent: false },
-                  { label: "COHORT", value: "TOP 12%", accent: false },
+                  { label: "DAYS DONE", value: "20 / 90", accent: false },
                 ].map((s, i) => (
                   <div key={i} style={{
                     padding: "0.85rem 1rem",

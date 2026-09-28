@@ -6,11 +6,11 @@ const MILESTONES = [
   { day: "DAY 03", tag: "FIRST ACTIONS", quote: "Okay, I actually did it.", mood: "positive", detail: "Complete your first daily actions. Small wins build momentum." },
   { day: "DAY 09", tag: "MISS A DAY", quote: "I knew this would happen.", mood: "warning", detail: "Recovery Mode activates. Your Arc doesn't reset — it adjusts." },
   { day: "DAY 10", tag: "RECOVERY", quote: "Wait — I'm still in it.", mood: "positive", detail: "Adjusted plan for today. Your weekly goal stays intact." },
-  { day: "DAY 21", tag: "PATTERN DETECTED", quote: "I actually prefer mornings.", mood: "positive", detail: "Winter Arc notices you complete morning tasks 91% of the time." },
-  { day: "DAY 30", tag: "FIRST REVIEW", quote: "Something is actually changing.", mood: "positive", detail: "Weekly review shows consistency: 83%. Your plan adapts." },
-  { day: "DAY 45", tag: "PLAN ADAPTS", quote: "This is starting to feel normal.", mood: "positive", detail: "Behavior-based adjustments keep your plan realistic." },
+  { day: "DAY 21", tag: "PATTERN DETECTED", quote: "I actually prefer mornings.", mood: "positive", detail: "Winter Arc is designed to notice patterns in your check-ins and suggest adjustments." },
+  { day: "DAY 30", tag: "FIRST REVIEW", quote: "Something is actually changing.", mood: "positive", detail: "Week 4 review: 83% consistency. The plan adjusts to keep your goal realistic." },
+  { day: "DAY 45", tag: "PLAN ADAPTS", quote: "This is starting to feel normal.", mood: "positive", detail: "Behavior-based plan adjustments are planned for the first product version." },
   { day: "DAY 60", tag: "MOMENTUM", quote: "I don't need as much motivation.", mood: "great", detail: "Consistency at 87%. You've missed days and kept going." },
-  { day: "DAY 90", tag: "ARC COMPLETE", quote: "This is just how I live now.", mood: "great", detail: "Your first Arc is done. Start your next one from a stronger baseline." },
+  { day: "DAY 90", tag: "ARC COMPLETE", quote: "I actually finished something.", mood: "great", detail: "Your first Arc is done. Review how far you came from Day 1. Start your next one from a stronger baseline." },
 ];
 
 const moodColor: Record<string, string> = {

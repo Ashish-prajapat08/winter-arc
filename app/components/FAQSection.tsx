@@ -24,7 +24,7 @@ const QUESTIONS = [
   },
   {
     q: "Is there an AI coach?",
-    a: "AI is part of the system — but it's not a chatbot. It surfaces behavioral insights and makes plan adjustments based on your actual data. You won't get generic motivational messages. You'll get specific, data-driven feedback on your patterns.",
+    a: "AI-assisted behavioral coaching is planned for the first product version. The goal is to surface real patterns in your check-in data and suggest specific plan adjustments — not generic motivational messages. The weekly review and adaptive plan screens shown on this page are previews of how this is designed to work.",
   },
   {
     q: "How does accountability work?",

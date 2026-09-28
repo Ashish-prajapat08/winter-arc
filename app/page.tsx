@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useState, useCallback } from "react";
+import { track } from "@vercel/analytics";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import ProblemSection from "./components/ProblemSection";
@@ -20,15 +21,22 @@ import SignupModal from "./components/SignupModal";
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
-  const open = () => setModalOpen(true);
-  const close = () => setModalOpen(false);
+
+  const open = useCallback((source?: string) => {
+    track("cta_clicked", { source: source || "unknown" });
+    setModalOpen(true);
+  }, []);
+
+  const close = useCallback(() => {
+    setModalOpen(false);
+  }, []);
 
   return (
     <>
-      <Navbar onCTAClick={open} />
+      <Navbar onCTAClick={() => open("navbar")} />
 
       {/* 01 — Hero */}
-      <HeroSection onCTAClick={open} />
+      <HeroSection onCTAClick={() => open("hero")} />
 
       {/* 02 — Problem */}
       <ProblemSection />
@@ -61,20 +69,24 @@ export default function Home() {
       <WhoSection />
 
       {/* 12 — Founding Cohort */}
-      <FoundingSection onCTAClick={open} />
+      <FoundingSection onCTAClick={() => open("founding_section")} />
 
       {/* 13 — FAQ */}
       <FAQSection />
 
       {/* 14 — Final CTA */}
-      <FinalCTA onCTAClick={open} />
+      <FinalCTA onCTAClick={() => open("final_cta")} />
 
       {/* Footer */}
       <Footer />
 
-      {/* Mobile sticky CTA */}
+      {/* Mobile sticky CTA — only visible on < 768px via CSS */}
       <div className="mobile-cta">
-        <button onClick={open} className="btn-primary" style={{ width: "100%", minHeight: "50px", fontSize: "0.78rem" }}>
+        <button
+          onClick={() => open("mobile_sticky")}
+          className="btn-primary"
+          style={{ width: "100%", minHeight: "50px", fontSize: "0.78rem" }}
+        >
           START YOUR ARC — $12 / 90 DAYS →
         </button>
       </div>

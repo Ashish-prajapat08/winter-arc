@@ -107,7 +107,7 @@ export default function ArcTrackerSection() {
               {/* Header */}
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.25rem", paddingBottom: "1rem", borderBottom: "1px solid #1e1e1e" }}>
                 <div>
-                  <div style={{ fontSize: "0.52rem", color: "#444", letterSpacing: "0.14em", marginBottom: "0.25rem" }}>YOUR ARC</div>
+                  <div style={{ fontSize: "0.45rem", color: "#3b82f6", letterSpacing: "0.14em", fontWeight: 700, marginBottom: "0.1rem" }}>EXAMPLE ARC — PRODUCT PREVIEW</div>
                   <div style={{ fontSize: "0.78rem", fontWeight: 800, color: "#e8a830" }}>RUN A HALF MARATHON</div>
                 </div>
                 <div style={{ textAlign: "right" }}>
