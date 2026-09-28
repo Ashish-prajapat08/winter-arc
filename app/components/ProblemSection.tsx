@@ -1,170 +1,108 @@
 "use client";
 import { useEffect, useRef } from "react";
 
+const cycle = [
+  { icon: "◉", label: "START", desc: "Motivated. Full plan.", col: "#e8a830" },
+  { icon: "—", label: "MISS", desc: "One bad day.", col: "#555" },
+  { icon: "↓", label: "MOMENTUM GONE", desc: "Guilt sets in.", col: "#555" },
+  { icon: "✕", label: "QUIT", desc: "Start again Monday.", col: "#555" },
+  { icon: "↻", label: "RESTART", desc: "Back to day one.", col: "#e8a830" },
+];
+
 export default function ProblemSection() {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const els = entry.target.querySelectorAll(".fade-up");
-            els.forEach((el, i) => setTimeout(() => el.classList.add("visible"), i * 100));
-          }
-        });
-      },
-      { threshold: 0.15 }
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll(".fade-up")
+            .forEach((el, i) => setTimeout(() => el.classList.add("visible"), i * 90));
+        }
+      }),
+      { threshold: 0.12 }
     );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
+    if (ref.current) io.observe(ref.current);
+    return () => io.disconnect();
   }, []);
 
   return (
-    <section
-      ref={ref}
-      style={{
-        padding: "clamp(4rem, 10vh, 8rem) clamp(1.5rem, 5vw, 6rem)",
-        borderBottom: "1px solid #2f2f2f",
-        backgroundColor: "#0a0a0a",
-      }}
-    >
-      <div style={{ maxWidth: "960px", margin: "0 auto" }}>
-        <h2
-          className="fade-up"
-          style={{
-            fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
-            fontWeight: 800,
-            letterSpacing: "-0.03em",
-            lineHeight: 1.1,
-            marginBottom: "2.5rem",
-            maxWidth: "700px",
-          }}
-        >
-          You don&apos;t need another habit tracker.
-        </h2>
-
-        <div
-          className="fade-up delay-100"
-          style={{
-            maxWidth: "560px",
-            marginBottom: "4rem",
-          }}
-        >
-          <p style={{ fontSize: "1.05rem", color: "#aaa", lineHeight: 1.75, marginBottom: "1.5rem" }}>
-            You already know what you should be doing.
-          </p>
-          <p style={{ fontSize: "1.05rem", color: "#aaa", lineHeight: 1.75, marginBottom: "1.5rem" }}>
-            The problem is doing it consistently.
-          </p>
-          <p style={{ fontSize: "1.05rem", color: "#888", lineHeight: 1.75 }}>
-            You start strong. Miss a day. Miss another. Lose momentum. Start again next Monday.
-          </p>
-          <p style={{ fontSize: "1.05rem", color: "#e8a830", lineHeight: 1.75, marginTop: "1.5rem", fontWeight: 600 }}>
-            Winter Arc is built around breaking that cycle.
-          </p>
+    <section ref={ref} className="section" id="problem" style={{ backgroundColor: "#080808" }}>
+      <div className="container-mid">
+        <div className="fade-up" style={{ marginBottom: "3.5rem" }}>
+          <span className="eyebrow" style={{ display: "block", marginBottom: "1rem" }}>The Real Problem</span>
+          <h2 className="headline" style={{ marginBottom: "1.5rem" }}>
+            You don&apos;t have a<br />knowledge problem.
+          </h2>
+          <h2 className="headline" style={{ color: "#e8a830" }}>
+            You have a consistency problem.
+          </h2>
         </div>
 
-        {/* The cycle visualization */}
-        <div className="fade-up delay-200">
-          <p style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.15em", color: "#555", textTransform: "uppercase", marginBottom: "1.5rem" }}>
-            The cycle most programs ignore
-          </p>
+        <div className="fade-up delay-1" style={{ maxWidth: "560px", marginBottom: "4rem" }}>
+          <p className="body-large" style={{ marginBottom: "1rem" }}>You know what you should be doing.</p>
+          <p className="body-large" style={{ marginBottom: "1rem" }}>You start strong.</p>
+          <p className="body-large" style={{ marginBottom: "1rem" }}>Life happens. You miss a day. Then another.</p>
+          <p className="body-large" style={{ marginBottom: "1rem" }}>Momentum disappears. You tell yourself you&apos;ll restart Monday.</p>
+          <p className="body-large" style={{ marginBottom: "1rem" }}>Monday becomes next Monday.</p>
+          <p style={{ fontSize: "1rem", color: "#e8a830", fontWeight: 700 }}>Repeat.</p>
+        </div>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(5, 1fr)",
-              gap: "0",
-              marginBottom: "2rem",
-              border: "1px solid #2f2f2f",
-            }}
-            className="cycle-grid"
-          >
-            {[
-              { label: "Start", icon: "●", desc: "Motivated, full plan" },
-              { label: "Miss", icon: "—", desc: "One bad day" },
-              { label: "Lose momentum", icon: "↓", desc: "Guilt sets in" },
-              { label: "Quit", icon: "✕", desc: ""I\'ll restart Monday"" },
-              { label: "Restart", icon: "↻", desc: "Back to day 1" },
-            ].map((step, i) => (
-              <div
-                key={i}
-                style={{
-                  padding: "1.5rem 1rem",
-                  borderRight: i < 4 ? "1px solid #2f2f2f" : "none",
+        {/* Cycle visualization */}
+        <div className="fade-up delay-2" style={{ marginBottom: "3rem" }}>
+          <div style={{ fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.18em", color: "#333", textTransform: "uppercase", marginBottom: "1.25rem" }}>
+            The loop most programs ignore
+          </div>
+          <div className="cycle-wrap" style={{ display: "flex", alignItems: "center", gap: "0" }}>
+            {cycle.map((step, i) => (
+              <div key={i} style={{ display: "flex", alignItems: "center", flex: 1 }}>
+                <div style={{
+                  flex: 1,
+                  padding: "1.25rem 1rem",
+                  border: "1px solid #1e1e1e",
+                  borderRight: "none",
                   textAlign: "center",
-                  backgroundColor: i === 4 ? "#111" : "transparent",
-                }}
-                className="cycle-step"
-              >
-                <div style={{ fontSize: "1.5rem", marginBottom: "0.5rem", color: i === 0 ? "#e8a830" : i === 4 ? "#e8a830" : "#555" }}>
-                  {step.icon}
+                  background: i === 0 || i === 4 ? "rgba(232,168,48,0.05)" : "#0e0e0e",
+                }}>
+                  <div style={{ fontSize: "1.1rem", color: step.col, marginBottom: "0.35rem" }}>{step.icon}</div>
+                  <div style={{ fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.1em", color: step.col, marginBottom: "0.2rem" }}>{step.label}</div>
+                  <div style={{ fontSize: "0.6rem", color: "#444", lineHeight: 1.4 }}>{step.desc}</div>
                 </div>
-                <div style={{ fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.05em", marginBottom: "0.25rem", color: i === 0 || i === 4 ? "#fff" : "#666" }}>
-                  {step.label}
-                </div>
-                <div style={{ fontSize: "0.65rem", color: "#444", lineHeight: 1.4 }}>
-                  {step.desc}
-                </div>
+                {i < cycle.length - 1 && (
+                  <div style={{ color: "#333", fontSize: "0.8rem", flexShrink: 0, width: "1px", background: "#1e1e1e", height: "100%" }} />
+                )}
               </div>
             ))}
+            <div style={{ border: "1px solid #1e1e1e", borderLeft: "none", padding: "1.25rem 1rem", background: "#0e0e0e", flexShrink: 0 }}>
+              <div style={{ fontSize: "1.1rem", color: "#333" }}>↺</div>
+            </div>
           </div>
+        </div>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(4, 1fr)",
-              gap: "0",
-              border: "1px solid #e8a830",
-              borderRadius: "0",
-            }}
-            className="arc-grid"
-          >
-            {[
-              { label: "Commit", icon: "◆", desc: "Set a real 90-day goal" },
-              { label: "Execute", icon: "▶", desc: "Daily plan, daily check-in" },
-              { label: "Recover", icon: "⟲", desc: "Miss a day? Get back on track" },
-              { label: "Continue", icon: "→", desc: "One Arc. 90 days." },
-            ].map((step, i) => (
-              <div
-                key={i}
-                style={{
-                  padding: "1.5rem 1rem",
-                  borderRight: i < 3 ? "1px solid #2a1a00" : "none",
-                  textAlign: "center",
-                  backgroundColor: "#0d0900",
-                }}
-                className="arc-step"
-              >
-                <div style={{ fontSize: "1.2rem", marginBottom: "0.5rem", color: "#e8a830" }}>
-                  {step.icon}
-                </div>
-                <div style={{ fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.05em", marginBottom: "0.25rem", color: "#e8a830" }}>
-                  {step.label}
-                </div>
-                <div style={{ fontSize: "0.65rem", color: "#7a5a20", lineHeight: 1.4 }}>
-                  {step.desc}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div style={{ marginTop: "0.5rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
-            <div style={{ width: "8px", height: "8px", backgroundColor: "#e8a830", borderRadius: "50%" }} />
-            <span style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", color: "#e8a830", textTransform: "uppercase" }}>
-              Winter Arc
-            </span>
+        {/* Winter Arc response */}
+        <div className="fade-up delay-3">
+          <div style={{
+            padding: "1.75rem 2rem",
+            border: "1px solid rgba(232,168,48,0.25)",
+            background: "rgba(232,168,48,0.04)",
+            display: "flex", gap: "1.5rem", alignItems: "flex-start",
+          }}>
+            <div style={{ width: "2px", background: "#e8a830", flexShrink: 0, alignSelf: "stretch" }} />
+            <div>
+              <div style={{ fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.15em", color: "#e8a830", marginBottom: "0.6rem" }}>WINTER ARC APPROACH</div>
+              <p style={{ fontSize: "0.95rem", color: "#ccc", lineHeight: 1.7 }}>
+                Winter Arc is designed to break that loop. Your Arc doesn&apos;t reset because you missed a day.
+                You recover, adjust, and continue. One bad day shouldn&apos;t erase 20 good ones.
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
       <style>{`
         @media (max-width: 640px) {
-          .cycle-grid { grid-template-columns: 1fr 1fr !important; }
-          .cycle-step:nth-child(5) { grid-column: 1 / -1; border-right: none !important; }
-          .arc-grid { grid-template-columns: 1fr 1fr !important; }
-          .arc-step { border-bottom: 1px solid #2a1a00; }
+          .cycle-wrap { flex-direction: column !important; }
+          .cycle-wrap > div { width: 100% !important; }
         }
       `}</style>
     </section>
